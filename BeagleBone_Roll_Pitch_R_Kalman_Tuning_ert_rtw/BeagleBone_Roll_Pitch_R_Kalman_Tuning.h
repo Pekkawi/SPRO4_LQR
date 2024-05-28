@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'BeagleBone_Roll_Pitch_R_Kalman_Tuning'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.7
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri May 24 16:44:22 2024
+ * C/C++ source code generated on : Mon May 27 17:43:32 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -80,6 +80,7 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T Gain1[3];                     /* '<S1>/Gain1' */
   real_T roll;                         /* '<Root>/MATLAB Function1' */
   real_T pitch;                        /* '<Root>/MATLAB Function' */
 } B_BeagleBone_Roll_Pitch_R_Kal_T;
@@ -89,6 +90,10 @@ typedef struct {
   beagleboneblue_bbblueMPU9250__T obj; /* '<Root>/MPU9250' */
   struct {
     void *LoggedData;
+  } Scope1_PWORK;                      /* '<Root>/Scope1' */
+
+  struct {
+    void *LoggedData;
   } Scope_PWORK;                       /* '<Root>/Scope' */
 } DW_BeagleBone_Roll_Pitch_R_Ka_T;
 
@@ -96,6 +101,9 @@ typedef struct {
 struct P_BeagleBone_Roll_Pitch_R_Kal_T_ {
   real_T MPU9250_SampleTime;           /* Expression: 0.1
                                         * Referenced by: '<Root>/MPU9250'
+                                        */
+  real_T Gain1_Gain;                   /* Expression: pi/180
+                                        * Referenced by: '<S1>/Gain1'
                                         */
 };
 
@@ -171,8 +179,9 @@ extern volatile boolean_T runModel;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'BeagleBone_Roll_Pitch_R_Kalman_Tuning'
- * '<S1>'   : 'BeagleBone_Roll_Pitch_R_Kalman_Tuning/MATLAB Function'
- * '<S2>'   : 'BeagleBone_Roll_Pitch_R_Kalman_Tuning/MATLAB Function1'
+ * '<S1>'   : 'BeagleBone_Roll_Pitch_R_Kalman_Tuning/Degrees to Radians'
+ * '<S2>'   : 'BeagleBone_Roll_Pitch_R_Kalman_Tuning/MATLAB Function'
+ * '<S3>'   : 'BeagleBone_Roll_Pitch_R_Kalman_Tuning/MATLAB Function1'
  */
 #endif                            /* BeagleBone_Roll_Pitch_R_Kalman_Tuning_h_ */
 

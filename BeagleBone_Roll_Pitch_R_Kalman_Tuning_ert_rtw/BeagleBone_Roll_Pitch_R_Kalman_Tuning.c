@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'BeagleBone_Roll_Pitch_R_Kalman_Tuning'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.7
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri May 24 16:44:22 2024
+ * C/C++ source code generated on : Mon May 27 17:43:32 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -74,14 +74,24 @@ void BeagleBone_Roll_Pitch_R_Kalman_Tuning_step(void)
   }
 
   MW_Read_Accel(&rtb_MPU9250_o1_0[0]);
-  mdata[0] = 0.0;
-  mdata[1] = 0.0;
-  mdata[2] = 0.0;
-  MW_Read_Gyro(&mdata[0]);
+  BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[0] = 0.0;
+  BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[1] = 0.0;
+  BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[2] = 0.0;
+  MW_Read_Gyro(&BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[0]);
   mdata[0] = 0.0;
   mdata[1] = 0.0;
   mdata[2] = 0.0;
   MW_Read_Mag(&mdata[0]);
+
+  /* Gain: '<S1>/Gain1' incorporates:
+   *  MATLABSystem: '<Root>/MPU9250'
+   */
+  BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[0] *=
+    BeagleBone_Roll_Pitch_R_Kalma_P.Gain1_Gain;
+  BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[1] *=
+    BeagleBone_Roll_Pitch_R_Kalma_P.Gain1_Gain;
+  BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[2] *=
+    BeagleBone_Roll_Pitch_R_Kalma_P.Gain1_Gain;
 
   /* MATLAB Function: '<Root>/MATLAB Function' incorporates:
    *  MATLABSystem: '<Root>/MPU9250'
@@ -139,10 +149,10 @@ void BeagleBone_Roll_Pitch_R_Kalman_Tuning_initialize(void)
   BeagleBone_Roll_Pitch_R_Kalm_M->Timing.stepSize0 = 0.1;
 
   /* External mode info */
-  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[0] = (208768638U);
-  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[1] = (3484628784U);
-  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[2] = (2560945697U);
-  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[3] = (641522780U);
+  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[0] = (2582370034U);
+  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[1] = (2017128304U);
+  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[2] = (915326109U);
+  BeagleBone_Roll_Pitch_R_Kalm_M->Sizes.checksums[3] = (1377458278U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

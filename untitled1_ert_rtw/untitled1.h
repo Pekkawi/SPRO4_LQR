@@ -9,7 +9,7 @@
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri May 24 16:27:19 2024
+ * C/C++ source code generated on : Mon May 27 10:40:52 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -26,8 +26,7 @@
 #include "sysran_types.h"
 #include "dt_info.h"
 #include "ext_work.h"
-#include "MW_I2C.h"
-#include "MW_MPU9250.h"
+#include "MW_bbblue_driver.h"
 #endif                                 /* untitled1_COMMON_INCLUDES_ */
 
 #include "untitled1_types.h"
@@ -76,23 +75,18 @@
 #define rtmGetTPtr(rtm)                (&(rtm)->Timing.taskTime0)
 #endif
 
-/* Block signals (default storage) */
-typedef struct {
-  real_T MPU9250_o1[3];                /* '<Root>/MPU9250' */
-} B_untitled1_T;
-
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  beagleboneblue_bbblueMPU9250__T obj; /* '<Root>/MPU9250' */
-  struct {
-    void *LoggedData;
-  } Scope_PWORK;                       /* '<Root>/Scope' */
+  beagleboneblue_bbblueServo_un_T obj; /* '<Root>/Servo Motor3' */
+  beagleboneblue_bbblueServo_un_T obj_h;/* '<Root>/Servo Motor2' */
+  beagleboneblue_bbblueServo_un_T obj_g;/* '<Root>/Servo Motor1' */
+  beagleboneblue_bbblueServo_un_T obj_p;/* '<Root>/Servo Motor' */
 } DW_untitled1_T;
 
 /* Parameters (default storage) */
 struct P_untitled1_T_ {
-  real_T MPU9250_SampleTime;           /* Expression: 0.1
-                                        * Referenced by: '<Root>/MPU9250'
+  real_T Constant_Value;               /* Expression: 140
+                                        * Referenced by: '<Root>/Constant'
                                         */
 };
 
@@ -136,9 +130,6 @@ struct tag_RTM_untitled1_T {
 
 /* Block parameters (default storage) */
 extern P_untitled1_T untitled1_P;
-
-/* Block signals (default storage) */
-extern B_untitled1_T untitled1_B;
 
 /* Block states (default storage) */
 extern DW_untitled1_T untitled1_DW;

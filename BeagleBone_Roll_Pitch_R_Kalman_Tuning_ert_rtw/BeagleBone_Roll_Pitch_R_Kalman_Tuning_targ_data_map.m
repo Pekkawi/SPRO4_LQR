@@ -28,12 +28,16 @@
         ;%
         ;% Auto data (BeagleBone_Roll_Pitch_R_Kalma_P)
         ;%
-            section.nData     = 1;
-            section.data(1)  = dumData; %prealloc
+            section.nData     = 2;
+            section.data(2)  = dumData; %prealloc
 
                     ;% BeagleBone_Roll_Pitch_R_Kalma_P.MPU9250_SampleTime
                     section.data(1).logicalSrcIdx = 0;
                     section.data(1).dtTransOffset = 0;
+
+                    ;% BeagleBone_Roll_Pitch_R_Kalma_P.Gain1_Gain
+                    section.data(2).logicalSrcIdx = 1;
+                    section.data(2).dtTransOffset = 1;
 
             nTotData = nTotData + section.nData;
             paramMap.sections(1) = section;
@@ -80,16 +84,20 @@
         ;%
         ;% Auto data (BeagleBone_Roll_Pitch_R_Kalma_B)
         ;%
-            section.nData     = 2;
-            section.data(2)  = dumData; %prealloc
+            section.nData     = 3;
+            section.data(3)  = dumData; %prealloc
 
-                    ;% BeagleBone_Roll_Pitch_R_Kalma_B.roll
+                    ;% BeagleBone_Roll_Pitch_R_Kalma_B.Gain1
                     section.data(1).logicalSrcIdx = 0;
                     section.data(1).dtTransOffset = 0;
 
-                    ;% BeagleBone_Roll_Pitch_R_Kalma_B.pitch
+                    ;% BeagleBone_Roll_Pitch_R_Kalma_B.roll
                     section.data(2).logicalSrcIdx = 1;
-                    section.data(2).dtTransOffset = 1;
+                    section.data(2).dtTransOffset = 3;
+
+                    ;% BeagleBone_Roll_Pitch_R_Kalma_B.pitch
+                    section.data(3).logicalSrcIdx = 2;
+                    section.data(3).dtTransOffset = 4;
 
             nTotData = nTotData + section.nData;
             sigMap.sections(1) = section;
@@ -147,12 +155,16 @@
             dworkMap.sections(1) = section;
             clear section
 
-            section.nData     = 1;
-            section.data(1)  = dumData; %prealloc
+            section.nData     = 2;
+            section.data(2)  = dumData; %prealloc
 
-                    ;% BeagleBone_Roll_Pitch_R_Kalm_DW.Scope_PWORK.LoggedData
+                    ;% BeagleBone_Roll_Pitch_R_Kalm_DW.Scope1_PWORK.LoggedData
                     section.data(1).logicalSrcIdx = 1;
                     section.data(1).dtTransOffset = 0;
+
+                    ;% BeagleBone_Roll_Pitch_R_Kalm_DW.Scope_PWORK.LoggedData
+                    section.data(2).logicalSrcIdx = 2;
+                    section.data(2).dtTransOffset = 1;
 
             nTotData = nTotData + section.nData;
             dworkMap.sections(2) = section;
@@ -184,8 +196,8 @@
     ;%
 
 
-    targMap.checksum0 = 208768638;
-    targMap.checksum1 = 3484628784;
-    targMap.checksum2 = 2560945697;
-    targMap.checksum3 = 641522780;
+    targMap.checksum0 = 2582370034;
+    targMap.checksum1 = 2017128304;
+    targMap.checksum2 = 915326109;
+    targMap.checksum3 = 1377458278;
 

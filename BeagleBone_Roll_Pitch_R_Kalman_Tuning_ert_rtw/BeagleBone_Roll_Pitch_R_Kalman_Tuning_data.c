@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'BeagleBone_Roll_Pitch_R_Kalman_Tuning'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.7
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri May 24 16:44:22 2024
+ * C/C++ source code generated on : Mon May 27 17:43:32 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,7 +24,12 @@ P_BeagleBone_Roll_Pitch_R_Kal_T BeagleBone_Roll_Pitch_R_Kalma_P = {
   /* Expression: 0.1
    * Referenced by: '<Root>/MPU9250'
    */
-  0.1
+  0.1,
+
+  /* Expression: pi/180
+   * Referenced by: '<S1>/Gain1'
+   */
+  0.017453292519943295
 };
 
 /*

@@ -7,9 +7,9 @@
  *
  * Code generation for model "BeagleBone_Roll_Pitch_R_Kalman_Tuning".
  *
- * Model version              : 1.6
+ * Model version              : 1.7
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Fri May 24 16:44:22 2024
+ * C source code generated on : Mon May 27 17:43:32 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -69,13 +69,13 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalma_B.roll), 0, 0, 2 }
+  { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalma_B.Gain1[0]), 0, 0, 5 }
   ,
 
   { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalm_DW.obj), 15, 0, 1 },
 
-  { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalm_DW.Scope_PWORK.LoggedData), 11, 0,
-    1 }
+  { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalm_DW.Scope1_PWORK.LoggedData), 11, 0,
+    2 }
 };
 
 /* data type transition table for block I/O structure */
@@ -86,7 +86,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalma_P.MPU9250_SampleTime), 0, 0, 1 }
+  { (char_T *)(&BeagleBone_Roll_Pitch_R_Kalma_P.MPU9250_SampleTime), 0, 0, 2 }
 };
 
 /* data type transition table for Parameters structure */
